@@ -51,6 +51,16 @@ void printLinkedList(Node *head)
 
 void selectionSort(Node *head)
 {
+    for (Node *i = head; i->next != NULL; i = i->next)
+    {
+        for (Node *j = i->next; j != NULL; j = j->next)
+        {
+            if (i->val < j->val)
+            {
+                swap(i->val, j->val);
+            }
+        }
+    }
 }
 
 int main()
@@ -60,5 +70,6 @@ int main()
     int val;
     listItemInput(val, head, tail);
     selectionSort(head);
+    printLinkedList(head);
     return 0;
 }
